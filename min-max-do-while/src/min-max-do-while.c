@@ -13,7 +13,6 @@
  y minimo
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,7 +28,7 @@ int main(void) {
 	int flag = TRUE;
 
 	do{
-		printf("ingrese un numero entre 0 y 888");
+		printf("ingrese un numero:");
 		scanf("%d", &bufferInt);
 		if(flag == TRUE){
 			maximo = bufferInt;
