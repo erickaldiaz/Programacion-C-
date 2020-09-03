@@ -20,6 +20,7 @@
 #define FALSE 0
 
 int main(void) {
+
 	setbuf(stdout, NULL);
 
 	int maximo;
