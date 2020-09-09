@@ -13,7 +13,6 @@
  * \return (-1) Error / (0) Ok
  *
  */
-
 int getInt(char* mensaje, char* mensajeError, int* pResultado,int reintentos,int maximo,int minimo)
 {
 	int retorno = -1;
