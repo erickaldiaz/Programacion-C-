@@ -27,7 +27,7 @@ int getInt(char* mensaje, char* mensajeError, int* pResultado,int reintentos,int
 		do
 		{
 			printf("%s",mensaje);
-			fflush(stdin);
+			fflush(stdin); // fflush // __fpurge
 			resultadoScanf = scanf("%d" , &bufferInt);
 			if(resultadoScanf == 1 && bufferInt >= minimo && bufferInt <= maximo)
 			{
