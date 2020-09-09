@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
 /**
  * \brief Solicita un entero al usuario
  * \param char* mensaje, Es el mensaje a ser mostrado al usuario
@@ -10,32 +14,34 @@
  *
  */
 
-int getInt(char* mensaje, char* mensajeError, char* pResultado, int minimo, int maximo, int* reintentos){
-
+int getInt(char* mensaje, char* mensajeError, int* pResultado,int reintentos,int maximo,int minimo)
+{
 	int retorno = -1;
 	int bufferInt;
 	int resultadoScanf;
-
-	   if(	   mensaje!= NULL &&
-			   mensajeError!= NULL &&
-			   minimo<=maximo &&
-			   reintentos>=0 &&
-			   pResultado!= NULL){
-
-		   do{
-				printf("%s", mensaje);
-						resultadoScanf = scanf("%d", &bufferInt);
-						if(resultadoScanf == 1 && bufferInt >= minimo && bufferInt <= maximo){
-							retorno = 0;
-							*pResultado = bufferInt;
-							break;
-						}
-						else{
-							printf("%s", mensajeError);
-							reintentos--;
-						}
-
-		   }while( reintentos >= 0);
-	   }
-	   return retorno;
+	if(		mensaje != NULL &&
+			mensajeError != NULL &&
+			pResultado != NULL &&
+			reintentos >= 0 &&
+			maximo >= minimo)
+	{
+		do
+		{
+			printf("%s",mensaje);
+			fflush(stdin);
+			resultadoScanf = scanf("%d" , &bufferInt);
+			if(resultadoScanf == 1 && bufferInt >= minimo && bufferInt <= maximo)
+			{
+				retorno = 0;
+				*pResultado = bufferInt;
+				break;
+			}
+			else
+			{
+				printf("%s",mensajeError);
+				reintentos--;
+			}
+		}while(reintentos >= 0);
+	}
+	return retorno;
 }
